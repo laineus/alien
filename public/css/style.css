@@ -1,0 +1,19 @@
+@charset "utf-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+li {
+  list-style: none;
+}
+body {
+  background: #333;
+  color: #FFF;
+  font-size: 15px;
+}
+#game {
+  width: 960px;
+  height: 540px;
+  font-size: 0;
+}

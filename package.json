@@ -1,0 +1,13 @@
+{
+  "name": "alien-abduction",
+  "version": "1.0.0",
+  "author": "laineus",
+  "license": "MIT",
+  "scripts": {
+    "dev": "webpack --watch",
+    "build": "webpack"
+  },
+  "devDependencies": {
+    "webpack": "^3.10.0"
+  }
+}
