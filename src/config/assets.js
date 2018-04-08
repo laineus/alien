@@ -1,7 +1,8 @@
 export default {
   image: {
     ufo: '/img/ufo.png',
-    cow: '/img/cow.png'
+    cow: '/img/cow.png',
+    shadow: '/img/shadow.png'
   },
   font: {
     ome: '/font/ome.woff',

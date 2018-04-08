@@ -1,8 +1,10 @@
 phina.globalize()
 import config from '../config/config'
 const AXES = [
-  { key: config.KEY_LEFT, x: -1 },
-  { key: config.KEY_RIGHT, x: 1 }
+  { key: config.KEY_LEFT, x: -1, y: 0 },
+  { key: config.KEY_RIGHT, x: 1, y: 0 },
+  { key: config.KEY_UP, x: 0, y: -1 },
+  { key: config.KEY_DOWN, x: 0, y: 1 }
 ]
 const SPEED = 4
 const MAX_SPEED = 20
@@ -13,7 +15,7 @@ export default {
     this.physical.friction = 0.9
     this.light = RectangleShape({
         width: 70,
-        height: 540,
+        height: 200,
         fill: '#BD2',
         strokeWidth: 0,
         blendMode: 'lighter'
@@ -33,9 +35,12 @@ export default {
     for(let axis of AXES) {
       if(keyboard.getKey(axis.key)) {
         this.physical.velocity.x += axis.x * SPEED
+        this.physical.velocity.y += axis.y * SPEED
       }
       if(this.physical.velocity.x > MAX_SPEED) this.physical.velocity.x = MAX_SPEED
       else if(this.physical.velocity.x < -MAX_SPEED) this.physical.velocity.x = -MAX_SPEED
+      if(this.physical.velocity.y > MAX_SPEED) this.physical.velocity.y = MAX_SPEED
+      else if(this.physical.velocity.y < -MAX_SPEED) this.physical.velocity.y = -MAX_SPEED
     }
   },
   abduct() {
