@@ -3,16 +3,25 @@ import config from '../config/config'
 const MARGIN = 20
 const LEFT = -MARGIN
 const RIGHT = config.SCREEN_WIDTH + MARGIN
+const ANIMALS = {
+  cow: {
+    speed: 1
+  },
+  wolf: {
+    speed: 3
+  }
+}
 export default {
   superClass: 'DisplayElement',
-  init(option) {
-    this.superInit(option)
+  init(name) {
+    this.superInit()
     this.physical.friction = 0.9
     this.body = Sprite('cow')
                 .setScale(0.15, 0.15)
                 .addChildTo(this)
     this.z = 0
     this.direction = Math.randint(0, 1) === 0 ? 1 : -1
+    this.speed = ANIMALS[name].speed
     this.setPosition(this.direction === 1 ? LEFT : RIGHT, Math.randint(150, 480))
     this.scale.x *= -this.direction
     this.shadow = Sprite('shadow')
@@ -29,15 +38,17 @@ export default {
     if(this.parent.player.abducting && Math.abs(diffX) < 70 && Math.abs(diffY + 200) < 100) {
       if(Math.abs(diffX) > 2) this.x += diffX > 0 ? 2 : -2
       if(Math.abs(diffY) > 2) this.y += diffY + 200 > 0 ? 2 : -2
-      this.z += 7
+      this.z += 8
       if(Math.abs(this.parent.player.y - (this.y - this.z)) < 10) {
+        this.parent.score++
         this.remove()
       }
     } else {
-      this.x += this.direction
+      this.x += this.direction * this.speed
       if(this.z > 0) this.z -= 10
     }
     if(this.position.x < LEFT || this.position.x > RIGHT) {
+      this.parent.lost++
       this.remove()
     }
     this.body.y = -this.z
