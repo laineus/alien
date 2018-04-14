@@ -17,12 +17,11 @@ export default {
         width: 70,
         height: 200,
         fill: '#BD2',
-        strokeWidth: 0,
-        blendMode: 'lighter'
+        strokeWidth: 0
       })
       .setOrigin(0.5, 0)
       .addChildTo(this)
-    this.opcity = 0.7
+      this.light.blendMode = 'lighter'
     this.body = Sprite('ufo')
                 .setScale(0.3, 0.3)
                 .addChildTo(this)

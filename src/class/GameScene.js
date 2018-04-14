@@ -12,6 +12,7 @@ export default {
   init(option) {
     this.superInit(option)
     this.backgroundColor = '#111'
+    this.bg = Sprite('bg').setOrigin(0, 0).addChildTo(this)
     this.player = Player().setPosition(200, 100).addChildTo(this)
     this.stage = STAGE[2]
     this.max = 60 * 30 / this.stage.frame
