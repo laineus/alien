@@ -13,6 +13,7 @@ export default {
   z: config.LIGHT_LENGTH,
   init(option) {
     this.superInit(option)
+    this.setPosition(config.SCREEN_WIDTH / 2, (config.SCREEN_HEIGHT / 2) + 50)
     this.physical.friction = 0.9
     this.light = RectangleShape({
         width: 70,

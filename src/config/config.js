@@ -14,5 +14,10 @@ export default {
   KEY_OPTION: 'C',
   KEY_SPACE: 'space',
   KEY_ESCAPE: 'escape',
-  LIGHT_LENGTH: 150
+  LIGHT_LENGTH: 150,
+  STAGE: [
+    { lv: 1, name: 'EASY', frame: 30 },
+    { lv: 2, name: 'NORMAL', frame: 20 },
+    { lv: 3, name: 'HARD', frame: 10 }
+  ]
 };
