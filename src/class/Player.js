@@ -10,20 +10,23 @@ const SPEED = 4
 const MAX_SPEED = 20
 export default {
   superClass: 'DisplayElement',
+  z: config.LIGHT_LENGTH,
   init(option) {
     this.superInit(option)
     this.physical.friction = 0.9
     this.light = RectangleShape({
         width: 70,
-        height: 200,
+        height: config.LIGHT_LENGTH,
         fill: '#BD2',
         strokeWidth: 0
       })
-      .setOrigin(0.5, 0)
+      .setOrigin(0.5, 1)
       .addChildTo(this)
       this.light.blendMode = 'lighter'
     this.body = Sprite('ufo')
                 .setScale(0.3, 0.3)
+                .setOrigin(0.5, 1)
+                .setPosition(0, -this.z)
                 .addChildTo(this)
   },
   update(app) {

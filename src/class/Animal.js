@@ -5,12 +5,17 @@ const LEFT = -MARGIN
 const RIGHT = config.SCREEN_WIDTH + MARGIN
 const ANIMALS = {
   cow: {
-    speed: 1
+    speed: 0.5
   },
   wolf: {
-    speed: 3
+    speed: 1
   }
 }
+const HOUSES = [
+  { x: 280, y: 180 },
+  { x: 670, y: 260 },
+  { x: 460, y: 410 }
+]
 export default {
   superClass: 'DisplayElement',
   init(name) {
@@ -22,7 +27,8 @@ export default {
     this.z = 0
     this.direction = Math.randint(0, 1) === 0 ? 1 : -1
     this.speed = ANIMALS[name].speed
-    this.setPosition(this.direction === 1 ? LEFT : RIGHT, Math.randint(150, 480))
+    const house = HOUSES[Math.floor(Math.random() * HOUSES.length)]
+    this.setPosition(house.x, Math.randint(house.y, house.y + 50))
     this.scale.x *= -this.direction
     this.shadow = Sprite('shadow')
                   .setOrigin(0.5, 0.5)
@@ -31,21 +37,21 @@ export default {
     this.shadow.alpha = 0.5
   },
   update(app) {
-    this.shadow.scale.x = 0.7 - (this.z / 200);
-    this.shadow.scale.y = 0.7 - (this.z / 200);
+    this.shadow.scale.x = 0.7 - (this.z / config.LIGHT_LENGTH);
+    this.shadow.scale.y = 0.7 - (this.z / config.LIGHT_LENGTH);
     const diffX = this.parent.player.x - this.x
     const diffY = this.parent.player.y - this.y
-    if(this.parent.player.abducting && Math.abs(diffX) < 70 && Math.abs(diffY + 200) < 100) {
-      if(Math.abs(diffX) > 2) this.x += diffX > 0 ? 2 : -2
-      if(Math.abs(diffY) > 2) this.y += diffY + 200 > 0 ? 2 : -2
-      this.z += 8
-      if(Math.abs(this.parent.player.y - (this.y - this.z)) < 10) {
+    if(this.parent.player.abducting && Math.abs(diffX) < 100 && Math.abs(diffY) < 100) {
+      if(Math.abs(diffX) > 2) this.x += diffX > 0 ? 3 : -3
+      if(Math.abs(diffY) > 2) this.y += diffY > 0 ? 3 : -3
+      this.z += 10
+      if(Math.abs((this.parent.player.y - this.parent.player.z) - (this.y - this.z)) < 10) {
         this.parent.score++
         this.remove()
       }
     } else {
       this.x += this.direction * this.speed
-      if(this.z > 0) this.z -= 10
+      if(this.z > 0) this.z = this.z < 10 ? 0 : this.z - 10
     }
     if(this.position.x < LEFT || this.position.x > RIGHT) {
       this.parent.lost++

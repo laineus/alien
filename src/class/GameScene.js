@@ -1,11 +1,9 @@
 phina.globalize();
 import config from '../config/config.js'
 const STAGE = [
-  { lv: 1, frame: 30 },
-  { lv: 2, frame: 20 },
-  { lv: 3, frame: 12 },
-  { lv: 4, frame: 9 },
-  { lv: 5, frame: 6 }
+  { lv: 1, name: 'EASY', frame: 30 },
+  { lv: 2, name: 'NORMAL', frame: 20 },
+  { lv: 3, name: 'HARD', frame: 10 }
 ]
 export default {
   superClass: 'DisplayScene',

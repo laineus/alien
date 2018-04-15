@@ -13,5 +13,6 @@ export default {
   KEY_CANCEL: 'X',
   KEY_OPTION: 'C',
   KEY_SPACE: 'space',
-  KEY_ESCAPE: 'escape'
+  KEY_ESCAPE: 'escape',
+  LIGHT_LENGTH: 150
 };
