@@ -1,5 +1,6 @@
 phina.globalize()
 import config from '../config/config'
+import state from '../config/state'
 const AXES = [
   { key: config.KEY_LEFT, x: -1, y: 0 },
   { key: config.KEY_RIGHT, x: 1, y: 0 },
@@ -40,11 +41,33 @@ export default {
         this.physical.velocity.x += axis.x * SPEED
         this.physical.velocity.y += axis.y * SPEED
       }
-      if(this.physical.velocity.x > MAX_SPEED) this.physical.velocity.x = MAX_SPEED
-      else if(this.physical.velocity.x < -MAX_SPEED) this.physical.velocity.x = -MAX_SPEED
-      if(this.physical.velocity.y > MAX_SPEED) this.physical.velocity.y = MAX_SPEED
-      else if(this.physical.velocity.y < -MAX_SPEED) this.physical.velocity.y = -MAX_SPEED
     }
+    if(state.pointer.x !== null && state.pointer.y !== null) {
+      const diffX = state.pointer.x - this.x
+      if(diffX < 0) {
+        this.physical.velocity.x -= SPEED
+        if(this.physical.velocity.x < diffX) this.physical.velocity.x = diffX
+      } else if(diffX > 0) {
+        this.physical.velocity.x += SPEED
+        if(this.physical.velocity.x > diffX) this.physical.velocity.x = diffX
+      }
+      const diffY = state.pointer.y - this.y
+      if(diffY < 0) {
+        this.physical.velocity.y -= SPEED
+        if(this.physical.velocity.y < diffY) this.physical.velocity.y = diffY
+      } else if(diffY > 0) {
+        this.physical.velocity.y += SPEED
+        if(this.physical.velocity.y > diffY) this.physical.velocity.y = diffY
+      }
+      if(Math.abs(diffX) < 5 && Math.abs(diffY) < 5) {
+        state.pointer.x = null
+        state.pointer.y = null
+      }
+    }
+    if(this.physical.velocity.x > MAX_SPEED) this.physical.velocity.x = MAX_SPEED
+    else if(this.physical.velocity.x < -MAX_SPEED) this.physical.velocity.x = -MAX_SPEED
+    if(this.physical.velocity.y > MAX_SPEED) this.physical.velocity.y = MAX_SPEED
+    else if(this.physical.velocity.y < -MAX_SPEED) this.physical.velocity.y = -MAX_SPEED
   },
   abduct() {
     const width = 10 - Math.abs(this.physical.velocity.x) < 0 ? 0 : 10 - Math.abs(this.physical.velocity.x)

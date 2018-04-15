@@ -23,12 +23,27 @@ export default {
       .setPosition(20, 20)
       .addChildTo(this)
     this.status.cornerRadius = 5
-    this.status.label = Label({
-      fill: '#BD2',
+    this.status.term = BlurLabel({
+      fill: '#FFF',
       fontSize: 15,
       lineHeight: 1.5,
-      align: 'left'
+      align: 'left',
+      shadowBlur: 6,
+      shadowColor: '#BD2',
+      text: `Lv:\nAbduct:\nLost:`
     }).setOrigin(0.5, 0).setPosition(25, 10).addChildTo(this.status)
+    this.status.value = BlurLabel({
+      fill: '#FFF',
+      fontSize: 15,
+      lineHeight: 1.5,
+      align: 'right',
+      shadowBlur: 6,
+      shadowColor: '#BD2'
+    }).setOrigin(0.5, 0).setPosition(170, 10).addChildTo(this.status)
+    this.onpointend = e => {
+      state.pointer.x = e.pointer.x
+      state.pointer.y = e.pointer.y
+    }
   },
   update(app) {
     if(this.count > 0 && app.frame % this.stage.frame === 0) {
@@ -36,8 +51,6 @@ export default {
       Animal(name).addChildTo(this)
       this.count--
     }
-    this.status.label.text = `Lv: ${this.stage.name}
-Abducts: ${this.score} / ${this.max}
-Lost: ${this.lost}`
+    this.status.value.text = `${this.stage.name}\n${this.score} / ${this.max}\n${this.lost}`
   }
 }

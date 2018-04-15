@@ -16,8 +16,8 @@ export default {
   KEY_ESCAPE: 'escape',
   LIGHT_LENGTH: 150,
   STAGE: [
-    { lv: 1, name: 'EASY', frame: 30 },
-    { lv: 2, name: 'NORMAL', frame: 20 },
-    { lv: 3, name: 'HARD', frame: 10 }
+    { lv: 1, name: 'Easy', frame: 30 },
+    { lv: 2, name: 'Normal', frame: 20 },
+    { lv: 3, name: 'Hard', frame: 10 }
   ]
 };

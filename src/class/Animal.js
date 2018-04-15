@@ -5,10 +5,10 @@ const LEFT = -MARGIN
 const RIGHT = config.SCREEN_WIDTH + MARGIN
 const ANIMALS = {
   cow: {
-    speed: 0.5
+    speed: 1
   },
   wolf: {
-    speed: 1
+    speed: 1.5
   }
 }
 const HOUSES = [
