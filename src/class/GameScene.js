@@ -47,7 +47,7 @@ export default {
   },
   update(app) {
     if(this.count > 0 && app.frame % this.stage.frame === 0) {
-      const name = Math.randint(1, 100) < 90 ? 'cow' : 'wolf'
+      const name = Math.randint(1, 100) < 90 ? 'cow' : 'sheep'
       Animal(name).addChildTo(this)
       this.count--
     }

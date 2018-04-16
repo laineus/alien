@@ -7,7 +7,7 @@ const ANIMALS = {
   cow: {
     speed: 1
   },
-  wolf: {
+  sheep: {
     speed: 1.5
   }
 }
@@ -21,9 +21,11 @@ export default {
   init(name) {
     this.superInit()
     this.physical.friction = 0.9
-    this.body = Sprite('cow')
-                .setScale(0.15, 0.15)
-                .addChildTo(this)
+    this.body = Spine(name, 'default')
+                .setOrigin(0.5, 1)
+                .setPosition(0, 0)
+                .setScale(0.2, 0.2)
+                .addChildTo(this);
     this.z = 0
     this.direction = Math.randint(0, 1) === 0 ? 1 : -1
     this.speed = ANIMALS[name].speed
@@ -32,9 +34,9 @@ export default {
     this.scale.x *= -this.direction
     this.shadow = Sprite('shadow')
                   .setOrigin(0.5, 0.5)
-                  .setPosition(0, 15)
+                  .setPosition(0, 0)
                   .addChildTo(this)
-    this.shadow.alpha = 0.5
+    this.shadow.alpha = 0.3
   },
   update(app) {
     this.shadow.scale.x = 0.7 - (this.z / config.LIGHT_LENGTH);

@@ -2,7 +2,6 @@ export default {
   image: {
     bg: '/img/bg.png',
     ufo: '/img/ufo.png',
-    cow: '/img/cow.png',
     shadow: '/img/shadow.png'
   },
   font: {

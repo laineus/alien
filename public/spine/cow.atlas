@@ -1,0 +1,48 @@
+
+cow.png
+size: 128,64
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+c_arm_front
+  rotate: true
+  xy: 29, 9
+  size: 14, 20
+  orig: 14, 20
+  offset: 0, 0
+  index: -1
+c_arn_back
+  rotate: false
+  xy: 101, 45
+  size: 7, 17
+  orig: 7, 17
+  offset: 0, 0
+  index: -1
+c_body
+  rotate: false
+  xy: 2, 25
+  size: 81, 37
+  orig: 81, 37
+  offset: 0, 0
+  index: -1
+c_leg_back
+  rotate: true
+  xy: 2, 9
+  size: 14, 25
+  orig: 14, 25
+  offset: 0, 0
+  index: -1
+c_leg_front
+  rotate: false
+  xy: 85, 38
+  size: 14, 24
+  orig: 14, 24
+  offset: 0, 0
+  index: -1
+c_tail
+  rotate: true
+  xy: 2, 2
+  size: 5, 23
+  orig: 5, 23
+  offset: 0, 0
+  index: -1
