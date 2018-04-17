@@ -17,19 +17,14 @@ export default {
     this.setPosition(config.SCREEN_WIDTH / 2, (config.SCREEN_HEIGHT / 2) + 50)
     this.physical.friction = 0.9
     this.light = RectangleShape({
-        width: 70,
-        height: config.LIGHT_LENGTH,
-        fill: '#BD2',
-        strokeWidth: 0
-      })
-      .setOrigin(0.5, 1)
-      .addChildTo(this)
-      this.light.blendMode = 'lighter'
-    this.body = Sprite('ufo')
-                .setScale(0.3, 0.3)
-                .setOrigin(0.5, 1)
-                .setPosition(0, -this.z)
-                .addChildTo(this)
+      width: 70,
+      height: config.LIGHT_LENGTH,
+      fill: '#BD2',
+      strokeWidth: 0
+    }).addChildTo(this).setOrigin(0.5, 1)
+    this.light.blendMode = 'lighter'
+    this.light.alpha = 0.8
+    this.body = Sprite('ufo').addChildTo(this).setOrigin(0.5, 1).setPosition(0, -this.z).setScale(0.3, 0.3)
   },
   update(app) {
     this.move(app.keyboard)

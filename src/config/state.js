@@ -3,5 +3,6 @@ export default {
   pointer: {
     x: null,
     y: null
-  }
+  },
+  cleared: []
 }

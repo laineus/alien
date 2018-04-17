@@ -39,16 +39,17 @@ export default {
     this.shadow.alpha = 0.3
   },
   update(app) {
+    const gameScene = this.parent.parent
     this.shadow.scale.x = 0.7 - (this.z / config.LIGHT_LENGTH);
     this.shadow.scale.y = 0.7 - (this.z / config.LIGHT_LENGTH);
-    const diffX = this.parent.player.x - this.x
-    const diffY = this.parent.player.y - this.y
-    if(this.parent.player.abducting && Math.abs(diffX) < 100 && Math.abs(diffY) < 100) {
+    const diffX = gameScene.player.x - this.x
+    const diffY = gameScene.player.y - this.y
+    if(gameScene.player.abducting && Math.abs(diffX) < 100 && Math.abs(diffY) < 100) {
       if(Math.abs(diffX) > 2) this.x += diffX > 0 ? 3 : -3
       if(Math.abs(diffY) > 2) this.y += diffY > 0 ? 3 : -3
       this.z += 10
-      if(Math.abs((this.parent.player.y - this.parent.player.z) - (this.y - this.z)) < 10) {
-        this.parent.score++
+      if(Math.abs((gameScene.player.y - gameScene.player.z) - (this.y - this.z)) < 10) {
+        gameScene.score++
         this.remove()
       }
     } else {
@@ -56,7 +57,7 @@ export default {
       if(this.z > 0) this.z = this.z < 10 ? 0 : this.z - 10
     }
     if(this.position.x < LEFT || this.position.x > RIGHT) {
-      this.parent.lost++
+      gameScene.lost++
       this.remove()
     }
     this.body.y = -this.z

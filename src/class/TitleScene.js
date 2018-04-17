@@ -22,7 +22,7 @@ export default {
     for (const i in config.STAGE) {
       this.buttons[i] = Button({
           text: '',
-          width: 180,
+          width: 240,
           height: 36,
           fill: 'rgba(0, 0, 0, 0.5)',
           strokeWidth: 0,
@@ -36,7 +36,7 @@ export default {
       this.buttons[i].label = BlurLabel({
         text: config.STAGE[i].name,
         fontFamily: 'ome',
-        fill: '#FFF',
+        fill: state.cleared.includes(i) ? '#BD2' : '#FFF',
         fontSize: 18,
         shadowBlur: 6,
         shadowColor: '#BD2'
