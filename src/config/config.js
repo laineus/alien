@@ -26,4 +26,4 @@ export default {
     { lv: 2, name: 'Normal', frame: 20 },
     { lv: 3, name: 'Hard', frame: 10 }
   ]
-};
+}

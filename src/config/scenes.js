@@ -6,9 +6,5 @@ export default [
   {
     className: 'GameScene',
     label: 'Game'
-  },
-  {
-    className: 'RankingScene',
-    label: 'Ranking'
   }
 ]

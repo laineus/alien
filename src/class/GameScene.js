@@ -1,4 +1,4 @@
-phina.globalize();
+phina.globalize()
 import config from '../config/config.js'
 import state from '../config/state.js'
 export default {
@@ -31,6 +31,21 @@ export default {
     if(!this.clear && (this.score + this.lost) === this.max) {
       this.gameOver()
     }
+  },
+  gameOver() {
+    const result = this.lost === 0
+    if(result && !state.cleared.includes(state.stageIndex)) {
+      state.cleared.push(state.stageIndex)
+    }
+    this.blackBg.label.text = result ? 'Mission Completed !' : 'Mission Failed...'
+    this.blackBg.tweener.to({
+      alpha: 1
+    }, 1000)
+    this.status.tweener.to({
+      x: config.SCREEN_WIDTH_C,
+      y: config.SCREEN_HEIGHT_C - 20
+    }, 500)
+    this.clear = true
   },
   setSystemGraphics () {
     // game over ui
@@ -95,20 +110,5 @@ export default {
       shadowBlur: 6,
       shadowColor: '#BD2'
     }).addChildTo(this.status).setOrigin(0.5, 0.5).setPosition(75, 0)
-  },
-  gameOver() {
-    const result = this.lost === 0
-    if (result && !state.cleared.includes(state.stageIndex)) {
-      state.cleared.push(state.stageIndex)
-    }
-    this.blackBg.label.text = result ? 'Mission Completed !' : 'Mission Failed...'
-    this.blackBg.tweener.to({
-      alpha: 1
-    }, 1000)
-    this.status.tweener.to({
-      x: config.SCREEN_WIDTH_C,
-      y: config.SCREEN_HEIGHT_C - 20
-    }, 500)
-    this.clear = true
   }
 }

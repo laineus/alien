@@ -21,27 +21,20 @@ export default {
   init(name) {
     this.superInit()
     this.physical.friction = 0.9
-    this.body = Spine(name, 'default')
-                .setOrigin(0.5, 1)
-                .setPosition(0, 0)
-                .setScale(0.2, 0.2)
-                .addChildTo(this);
+    this.body = Spine(name, 'default').addChildTo(this).setOrigin(0.5, 1).setScale(0.2, 0.2)
     this.z = 0
     this.direction = Math.randint(0, 1) === 0 ? 1 : -1
     this.speed = ANIMALS[name].speed
     const house = HOUSES[Math.floor(Math.random() * HOUSES.length)]
     this.setPosition(house.x, Math.randint(house.y, house.y + 50))
     this.scale.x *= -this.direction
-    this.shadow = Sprite('shadow')
-                  .setOrigin(0.5, 0.5)
-                  .setPosition(0, 0)
-                  .addChildTo(this)
+    this.shadow = Sprite('shadow').addChildTo(this).setOrigin(0.5, 0.5)
     this.shadow.alpha = 0.3
   },
   update(app) {
     const gameScene = this.parent.parent
-    this.shadow.scale.x = 0.7 - (this.z / config.LIGHT_LENGTH);
-    this.shadow.scale.y = 0.7 - (this.z / config.LIGHT_LENGTH);
+    this.shadow.scale.x = 0.7 - (this.z / config.LIGHT_LENGTH)
+    this.shadow.scale.y = 0.7 - (this.z / config.LIGHT_LENGTH)
     const diffX = gameScene.player.x - this.x
     const diffY = gameScene.player.y - this.y
     if(gameScene.player.abducting && Math.abs(diffX) < 100 && Math.abs(diffY) < 100) {

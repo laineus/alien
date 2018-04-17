@@ -6,7 +6,6 @@ export default {
   init(option) {
     this.superInit(option)
     this.backgroundColor = '#111'
-
     const bg = Sprite('bg', 960, 540).setOrigin(0, 0).addChildTo(this)
 
     const blurlabel = BlurLabel({
@@ -21,17 +20,14 @@ export default {
     this.buttons = []
     for (const i in config.STAGE) {
       this.buttons[i] = Button({
-          text: '',
-          width: 240,
-          height: 36,
-          fill: 'rgba(0, 0, 0, 0.5)',
-          strokeWidth: 0,
-          fontSize: 18,
-          fontFamily: 'ome'
-        })
-        .setOrigin(0.5, 0.5)
-        .setPosition(480, 300 + (i * 45))
-        .addChildTo(this)
+        text: '',
+        width: 240,
+        height: 36,
+        fill: 'rgba(0, 0, 0, 0.5)',
+        strokeWidth: 0,
+        fontSize: 18,
+        fontFamily: 'ome'
+      }).addChildTo(this).setOrigin(0.5, 0.5).setPosition(480, 300 + (i * 45))
       this.buttons[i].cornerRadius = 5
       this.buttons[i].label = BlurLabel({
         text: config.STAGE[i].name,
