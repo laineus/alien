@@ -39,6 +39,7 @@ export default {
     if(result && !state.cleared.includes(state.stageIndex)) {
       state.cleared.push(state.stageIndex)
     }
+    this.blackBg.show()
     this.blackBg.label.text = result ? 'Mission Completed !' : 'Mission Failed...'
     this.blackBg.tweener.to({
       alpha: 1
@@ -58,6 +59,7 @@ export default {
       strokeWidth: 0
     }).addChildTo(this).setOrigin(0.5, 0.5).setPosition(config.SCREEN_WIDTH_C, config.SCREEN_HEIGHT_C)
     this.blackBg.alpha = 0
+    this.blackBg.hide()
     this.blackBg.label = BlurLabel({
       text: '',
       fontFamily: 'ome',
