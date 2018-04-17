@@ -15,10 +15,12 @@ export default {
     this.score = 0
     this.lost = 0
     this.clear = false
-    this.onpointend = e => {
-      state.pointer.x = e.pointer.x
-      state.pointer.y = e.pointer.y
-    }
+    setTimeout(() => {
+      this.onpointend = e => {
+        state.pointer.x = e.pointer.x
+        state.pointer.y = e.pointer.y
+      }
+    }, 100)
     this.setSystemGraphics()
   },
   update(app) {
