@@ -8,12 +8,26 @@ li {
   list-style: none;
 }
 body {
-  background: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 960px;
+  min-height: 100vh;
+  background: #1A1A1A;
   color: #FFF;
   font-size: 15px;
+}
+.container {
+  width: 960px;
+  margin: auto;
 }
 #game {
   width: 960px;
   height: 540px;
+  margin: auto;
   font-size: 0;
+}
+.banner {
+  margin-top: 30px;
+  text-align: center;
 }
