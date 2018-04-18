@@ -33,6 +33,12 @@ export default {
         state.stageIndex = i
         this.exit('Game')
       }
+      this.description = Label({
+        text: 'Tap to select difficulty.',
+        fontFamily: 'aldrich',
+        fill: '#FFF',
+        fontSize: 12
+      }).addChildTo(this).setOrigin(0.5, 1).setPosition(config.SCREEN_WIDTH_C, config.SCREEN_HEIGHT - 20)
     }
   }
 }

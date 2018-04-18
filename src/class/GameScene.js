@@ -48,6 +48,7 @@ export default {
       x: config.SCREEN_WIDTH_C,
       y: config.SCREEN_HEIGHT_C - 20
     }, 500)
+    this.description.alpha = 0
     this.clear = true
   },
   setSystemGraphics () {
@@ -114,5 +115,11 @@ export default {
       shadowBlur: 6,
       shadowColor: '#BD2'
     }).addChildTo(this.status).setOrigin(0.5, 0.5).setPosition(75, 0)
+    this.description = Label({
+      text: 'Tap to move. Let\'s abduct animals !',
+      fontFamily: 'aldrich',
+      fill: '#FFF',
+      fontSize: 12
+    }).addChildTo(this).setOrigin(0.5, 1).setPosition(config.SCREEN_WIDTH_C, config.SCREEN_HEIGHT - 20)
   }
 }
