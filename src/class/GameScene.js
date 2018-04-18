@@ -1,6 +1,6 @@
 phina.globalize()
-import config from '../config/config.js'
-import state from '../config/state.js'
+import config from '../config/config'
+import state from '../config/state'
 export default {
   superClass: 'DisplayScene',
   init(option) {

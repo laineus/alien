@@ -1,10 +1,10 @@
 phina.globalize()
-import config from '../config/config.js'
+import config from '../config/config'
+const DEBUG_RENDERING = false
+const TRIANGLE_RENDERING = false
+const DIR = '/spine/'
 export default {
   superClass: 'PlainElement',
-  DEBUG_RENDERING: false,
-  TRIANGLE_RENDERING: false,
-  DIR: '/spine/',
   name: null,
   anime_name: '',
   skin_name: null,
@@ -20,13 +20,13 @@ export default {
     this.skin_name = skin_name
 
     this.renderer = new spine.canvas.SkeletonRenderer(this.canvas.context)
-    this.renderer.debugRendering = this.DEBUG_RENDERING
-    this.renderer.triangleRendering = this.TRIANGLE_RENDERING
+    this.renderer.debugRendering = DEBUG_RENDERING
+    this.renderer.triangleRendering = TRIANGLE_RENDERING
 
     this.asset_manager = new spine.canvas.AssetManager()
-    this.asset_manager.loadText(this.DIR + this.name + '.json')
-    this.asset_manager.loadText(this.DIR + this.name + '.atlas')
-    this.asset_manager.loadTexture(this.DIR + this.name + '.png')
+    this.asset_manager.loadText(DIR + this.name + '.json')
+    this.asset_manager.loadText(DIR + this.name + '.atlas')
+    this.asset_manager.loadTexture(DIR + this.name + '.png')
   },
   update() {
     if(this.load_completed) {
@@ -46,12 +46,12 @@ export default {
     }
   },
   loadSkeleton() {
-    const atlas = new spine.TextureAtlas(this.asset_manager.get(this.DIR + this.name + '.atlas'), path => {
-      return this.asset_manager.get(this.DIR + path)
+    const atlas = new spine.TextureAtlas(this.asset_manager.get(DIR + this.name + '.atlas'), path => {
+      return this.asset_manager.get(DIR + path)
     })
     const atlasLoader = new spine.AtlasAttachmentLoader(atlas)
     const skeletonJson = new spine.SkeletonJson(atlasLoader)
-    const skeletonData = skeletonJson.readSkeletonData(this.asset_manager.get(this.DIR + this.name + '.json'))
+    const skeletonData = skeletonJson.readSkeletonData(this.asset_manager.get(DIR + this.name + '.json'))
 
     this.skeleton = new spine.Skeleton(skeletonData)
     this.skeleton.setSkinByName(this.skin_name)

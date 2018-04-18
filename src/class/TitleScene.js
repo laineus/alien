@@ -1,6 +1,6 @@
 phina.globalize()
-import config from '../config/config.js'
-import state from '../config/state.js'
+import config from '../config/config'
+import state from '../config/state'
 export default {
   superClass: 'DisplayScene',
   init(option) {
@@ -18,7 +18,7 @@ export default {
     }).addChildTo(this).setPosition(480, 180).setOrigin(0.5, 0.5)
 
     this.buttons = []
-    for (const i in config.STAGE) {
+    for(const i in config.STAGE) {
       this.buttons[i] = Button({
         text: '',
         width: 240,

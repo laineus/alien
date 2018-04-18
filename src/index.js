@@ -1,8 +1,8 @@
 phina.globalize()
-import config from './config/config.js'
-import assets from './config/assets.js'
-import scenes from './config/scenes.js'
-import parts from './config/parts.js'
+import config from './config/config'
+import assets from './config/assets'
+import scenes from './config/scenes'
+import parts from './config/parts'
 
 for(let i in parts) {
   phina.define(parts[i].className, parts[i].class)
@@ -20,9 +20,4 @@ phina.main(() => {
   })
   document.getElementById(config.DOM_ID).appendChild(game.domElement)
   game.run()
-  game.update = () => {
-    if(game.updater.app.keyboard.getKeyUp('0')) {
-      config.DEV = !config.DEV
-    }
-  }
 })

@@ -3,10 +3,10 @@ export default {
   init(option) {
     this.superInit(option)
     this.blendMode = 'lighter'
-    this.shadowOffsetX = option.shadowOffsetX ? option.shadowOffsetX : 0
-    this.shadowOffsetY = option.shadowOffsetY ? option.shadowOffsetY : 0
-    this.shadowBlur = option.shadowBlur ? option.shadowBlur : 10
-    this.shadowColor = option.shadowColor ? option.shadowColor : '#E82'
+    this.shadowOffsetX = option.shadowOffsetX || 0
+    this.shadowOffsetY = option.shadowOffsetY || 0
+    this.shadowBlur = option.shadowBlur != null ? option.shadowBlur : 10
+    this.shadowColor = option.shadowColor || '#E82'
   },
   renderFill(canvas) {
     canvas.context.shadowOffsetX = this.shadowOffsetX
