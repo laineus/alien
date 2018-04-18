@@ -28,6 +28,14 @@ body {
   font-size: 0;
 }
 .banner {
-  margin-top: 30px;
+  margin-top: 20px;
   text-align: center;
+}
+.tweet {
+  margin-top: 20px;
+  font-size: 11px;
+  text-align: center;
+}
+.tweet a {
+  color: #CCC;
 }
