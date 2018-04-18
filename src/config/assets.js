@@ -1,12 +1,13 @@
 export default {
   image: {
+    title: '/img/title.png',
     bg: '/img/bg.png',
     ufo: '/img/ufo.png',
+    light: '/img/light.png',
     shadow: '/img/shadow.png'
   },
   font: {
-    ome: '/font/ome.woff',
-    joti_one: '/font/joti_one.woff'
+    aldrich: '/font/aldrich.woff'
   },
   sound: {
   }

@@ -12,9 +12,9 @@ const ANIMALS = {
   }
 }
 const HOUSES = [
-  { x: 280, y: 180 },
-  { x: 670, y: 260 },
-  { x: 460, y: 410 }
+  { x: 320, y: 226 },
+  { x: 680, y: 280 },
+  { x: 400, y: 420 }
 ]
 export default {
   superClass: 'DisplayElement',

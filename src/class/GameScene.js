@@ -18,7 +18,7 @@ export default {
     setTimeout(() => {
       this.onpointend = e => {
         state.pointer.x = e.pointer.x
-        state.pointer.y = e.pointer.y
+        state.pointer.y = e.pointer.y < 180 ? 180 : e.pointer.y
       }
     }, 100)
     this.setSystemGraphics()
@@ -62,9 +62,9 @@ export default {
     this.blackBg.hide()
     this.blackBg.label = BlurLabel({
       text: '',
-      fontFamily: 'ome',
+      fontFamily: 'aldrich',
       fill: '#FFF',
-      fontSize: 32,
+      fontSize: 36,
       shadowBlur: 6,
       shadowColor: '#BD2'
     }).addChildTo(this.blackBg).setOrigin(0.5, 0.5).setPosition(0, -120)
@@ -75,12 +75,12 @@ export default {
       fill: 'rgba(0, 0, 0, 0.5)',
       strokeWidth: 0,
       fontSize: 18,
-      fontFamily: 'ome'
+      fontFamily: 'aldrich'
     }).addChildTo(this.blackBg).setOrigin(0.5, 0.5).setPosition(0, 80)
     this.blackBg.button.cornerRadius = 5
     this.blackBg.button.label = BlurLabel({
       text: 'Back To Title',
-      fontFamily: 'ome',
+      fontFamily: 'aldrich',
       fill: '#BD2',
       fontSize: 18,
       shadowBlur: 6,

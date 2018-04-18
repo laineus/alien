@@ -6,17 +6,7 @@ export default {
   init(option) {
     this.superInit(option)
     this.backgroundColor = '#111'
-    const bg = Sprite('bg', 960, 540).setOrigin(0, 0).addChildTo(this)
-
-    const blurlabel = BlurLabel({
-      text: 'Alien Abduction',
-      fontFamily: 'ome',
-      fill: '#FFF',
-      fontSize: 32,
-      shadowBlur: 6,
-      shadowColor: '#BD2'
-    }).addChildTo(this).setPosition(480, 180).setOrigin(0.5, 0.5)
-
+    this.bg = Sprite('title', 960, 540).addChildTo(this).setOrigin(0, 0)
     this.buttons = []
     for(const i in config.STAGE) {
       this.buttons[i] = Button({
@@ -26,12 +16,12 @@ export default {
         fill: 'rgba(0, 0, 0, 0.5)',
         strokeWidth: 0,
         fontSize: 18,
-        fontFamily: 'ome'
+        fontFamily: 'aldrich'
       }).addChildTo(this).setOrigin(0.5, 0.5).setPosition(480, 300 + (i * 45))
       this.buttons[i].cornerRadius = 5
       this.buttons[i].label = BlurLabel({
         text: config.STAGE[i].name,
-        fontFamily: 'ome',
+        fontFamily: 'aldrich',
         fill: state.cleared.includes(i) ? '#BD2' : '#FFF',
         fontSize: 18,
         shadowBlur: 6,

@@ -7,14 +7,14 @@ export default {
     const loader = AssetLoader()
     const label = Label({
       text: 'NOW LOADING...',
-      fontFamily: 'ome',
+      fontFamily: 'aldrich',
       fontSize: 15,
       fill: '#BD2',
       x: 480,
       y: 260
     }).addChildTo(this)
     const gauge = Gauge({
-      width: 120,
+      width: 124,
       height: 2,
       cornerRadius: 0,
       maxValue: 1,
@@ -26,7 +26,7 @@ export default {
       strokeWidth: 0
     }).addChildTo(this)
     loader.onprogress = e => gauge.value = e.progress
-    loader.onload = e => setTimeout(() => this.flare('loaded'), 100)
+    loader.onload = e => setTimeout(() => this.flare('loaded'), 1000)
     loader.load(option.assets)
   }
 }
