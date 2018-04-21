@@ -10,5 +10,8 @@ export default {
     aldrich: '/font/aldrich.woff'
   },
   sound: {
+    bgm: '/sound/bgm.ogg',
+    abduct: '/sound/abduct.ogg',
+    action: '/sound/action.ogg'
   }
 }

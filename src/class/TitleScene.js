@@ -1,12 +1,15 @@
 phina.globalize()
 import config from '../config/config'
 import state from '../config/state'
+import SoundButton from './SoundButton'
 export default {
   superClass: 'DisplayScene',
   init(option) {
     this.superInit(option)
+    if(!SoundManager.isMute()) SoundManager.playMusic('bgm')
     this.backgroundColor = '#111'
     this.bg = Sprite('title', 960, 540).addChildTo(this).setOrigin(0, 0)
+    this.bgmButton = SoundButton.addChildTo(this).setOrigin(1, 0).setPosition(960 - 20, 20)
     this.buttons = []
     for(const i in config.STAGE) {
       this.buttons[i] = Button({
@@ -31,6 +34,7 @@ export default {
       this.buttons[i].onpointout = () => this.buttons[i].fill = 'rgba(0, 0, 0, 0.5)'
       this.buttons[i].onpointend = () => {
         state.stageIndex = i
+        if(!SoundManager.isMute()) SoundManager.play('action')
         this.exit('Game')
       }
       this.description = Label({

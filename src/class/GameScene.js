@@ -1,6 +1,7 @@
 phina.globalize()
 import config from '../config/config'
 import state from '../config/state'
+import SoundButton from './SoundButton'
 export default {
   superClass: 'DisplayScene',
   init(option) {
@@ -9,6 +10,7 @@ export default {
     this.bg = Sprite('bg').setOrigin(0, 0).addChildTo(this)
     this.enemies = DisplayElement().addChildTo(this)
     this.player = Player().addChildTo(this)
+    this.bgmButton = SoundButton.addChildTo(this).setOrigin(1, 0).setPosition(960 - 20, 20)
     this.stage = config.STAGE[state.stageIndex]
     this.max = 60 * 30 / this.stage.frame
     this.count = this.max
@@ -89,7 +91,10 @@ export default {
     }).addChildTo(this.blackBg.button).setOrigin(0.5, 0.5)
     this.blackBg.button.onpointover = () => this.blackBg.button.fill = 'rgba(0, 0, 0, 0.8)'
     this.blackBg.button.onpointout = () => this.blackBg.button.fill = 'rgba(0, 0, 0, 0.5)'
-    this.blackBg.button.onpointend = () => this.exit('Title')
+    this.blackBg.button.onpointend = () => {
+      if(!SoundManager.isMute()) SoundManager.play('action')
+      this.exit('Title')
+    }
     // status ui
     this.status = RectangleShape({
       width: 180,

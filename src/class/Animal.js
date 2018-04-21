@@ -43,6 +43,7 @@ export default {
       this.z += 10
       if(Math.abs((gameScene.player.y - gameScene.player.z) - (this.y - this.z)) < 10) {
         gameScene.score++
+        if(!SoundManager.isMute()) SoundManager.play('abduct')
         this.remove()
       }
     } else {
