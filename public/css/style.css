@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  max-width: 100%;
 }
 li {
   list-style: none;
@@ -11,7 +12,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 960px;
   min-height: 100vh;
   background: #1A1A1A;
   color: #FFF;
