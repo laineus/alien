@@ -22,8 +22,6 @@ body {
   margin: auto;
 }
 #game {
-  width: 960px;
-  height: 540px;
   margin: auto;
   font-size: 0;
 }

@@ -16,7 +16,7 @@ phina.main(() => {
     scenes: scenes,
     assets: assets,
     fps: config.FPS,
-    fit: false
+    fit: FIT
   })
   document.getElementById(config.DOM_ID).appendChild(game.domElement)
   game.run()
