@@ -34,7 +34,7 @@ export default {
       this.buttons[i].onpointout = () => this.buttons[i].fill = 'rgba(0, 0, 0, 0.5)'
       this.buttons[i].onpointend = () => {
         state.stageIndex = i
-        if(!SoundManager.isMute() && /iP(hone|(o|a)d)/.test(window.navigator.userAgent)) SoundManager.playMusic('bgm')
+        // if(!SoundManager.isMute() && /iP(hone|(o|a)d)/.test(window.navigator.userAgent)) SoundManager.playMusic('bgm')
         if(!SoundManager.isMute()) SoundManager.play('action')
         this.exit('Game')
       }
