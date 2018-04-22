@@ -8,7 +8,7 @@ https://alien.laineus.com/
 ![ScreenShot1](ss1.png)
 ![ScreenShot2](ss2.png)
 
-# build
+# Build
 
 ```
 $ yarn install
