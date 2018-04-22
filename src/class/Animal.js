@@ -1,4 +1,3 @@
-phina.globalize()
 import config from '../config/config'
 const MARGIN = 20
 const LEFT = -MARGIN

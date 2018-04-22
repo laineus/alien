@@ -1,4 +1,3 @@
-phina.globalize()
 import config from '../config/config'
 const DEBUG_RENDERING = false
 const TRIANGLE_RENDERING = false

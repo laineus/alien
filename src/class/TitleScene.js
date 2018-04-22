@@ -1,4 +1,3 @@
-phina.globalize()
 import config from '../config/config'
 import state from '../config/state'
 import SoundButton from './SoundButton'

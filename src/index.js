@@ -1,4 +1,3 @@
-phina.globalize()
 import config from './config/config'
 import assets from './config/assets'
 import scenes from './config/scenes'

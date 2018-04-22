@@ -1,4 +1,3 @@
-phina.globalize()
 export default {
   superClass: 'DisplayScene',
   init(option) {
