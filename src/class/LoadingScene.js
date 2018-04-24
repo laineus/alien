@@ -29,10 +29,11 @@ export default {
     loader.load(option.assets)
   },
   onLoad() {
-    this.label.y += 10
-    this.label.fontSize += 2
-    this.label.text = 'TAP TO START !'
-    this.gauge.alpha = 0
-    this.onpointstart = () => this.flare('loaded')
+    this.flare('loaded')
+    // this.label.y += 10
+    // this.label.fontSize += 2
+    // this.label.text = 'TAP TO START !'
+    // this.gauge.alpha = 0
+    // this.onpointstart = () => this.flare('loaded')
   }
 }
