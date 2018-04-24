@@ -4,7 +4,7 @@ export default {
     this.superInit(option)
     this.backgroundColor = '#111'
     const loader = AssetLoader()
-    const label = Label({
+    this.label = Label({
       text: 'NOW LOADING...',
       fontFamily: 'aldrich',
       fontSize: 15,
@@ -12,7 +12,7 @@ export default {
       x: 480,
       y: 260
     }).addChildTo(this)
-    const gauge = Gauge({
+    this.gauge = Gauge({
       width: 124,
       height: 2,
       cornerRadius: 0,
@@ -24,8 +24,15 @@ export default {
       y: 280,
       strokeWidth: 0
     }).addChildTo(this)
-    loader.onprogress = e => gauge.value = e.progress
-    loader.onload = e => setTimeout(() => this.flare('loaded'), 1000)
+    loader.onprogress = e => this.gauge.value = e.progress
+    loader.onload = e => setTimeout(() => this.onLoad(), 1000)
     loader.load(option.assets)
+  },
+  onLoad() {
+    this.label.y += 10
+    this.label.fontSize += 2
+    this.label.text = 'TAP TO START !'
+    this.gauge.alpha = 0
+    this.onpointstart = () => this.flare('loaded')
   }
 }
