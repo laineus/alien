@@ -23,7 +23,10 @@ export default {
       }
     }, 100)
     this.setSystemGraphics()
-    ga('send', 'event', 'game', 'start', this.stage.name)
+    gtag('event', 'start', {
+      'event_category': 'game',
+      'event_label': this.stage.name
+    })
   },
   update(app) {
     if(this.count > 0 && app.frame % this.stage.frame === 0) {
@@ -52,7 +55,11 @@ export default {
     }, 500)
     this.description.alpha = 0
     this.clear = true
-    ga('send', 'event', 'game', 'finish', this.stage.name, result ? 1 : 0)
+    gtag('event', 'finish', {
+      'event_category': 'game',
+      'event_label': this.stage.name,
+      'value': result ? 1 : 0
+    })
   },
   setSystemGraphics () {
     // game over ui
