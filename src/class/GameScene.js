@@ -51,6 +51,7 @@ export default {
     }, 500)
     this.description.alpha = 0
     this.clear = true
+    ga('send', 'event', 'game', 'finish', this.stage.name, result ? 1 : 0)
   },
   setSystemGraphics () {
     // game over ui
