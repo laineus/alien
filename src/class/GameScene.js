@@ -23,6 +23,7 @@ export default {
       }
     }, 100)
     this.setSystemGraphics()
+    ga('send', 'event', 'game', 'start', this.stage.name)
   },
   update(app) {
     if(this.count > 0 && app.frame % this.stage.frame === 0) {
